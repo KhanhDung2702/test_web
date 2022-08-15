@@ -12,19 +12,44 @@ html {
 }
 
 :root {
-  /* color */
-  --white:#fff;
-  --grey:#ccc;
-  --green:#54b192;
-  --navbar-color: #242526;
-  --header-color:#6c63ff;
-  --red:#f75842;
-  --blue:#6c63ff;
-  --bg: #2E343B;
-  --bg2: #422890;
+  --filler:0;
+  /* background */
+  --bg: #12191D;
+
+  /* social */
   --fb:#3b5999;
   --ig:#e4405f;
   --tw:#55acee;
+
+  /* navbar */
+  --navbar-bg: #1C262D;
+  --navbar-text:#fff;
+  --navbar-text-2:#0072E9;
+
+  /* banner */
+  --banner-title:#0072E9;
+  --banner-text:#F4F4F4;
+  --banner-btn-1:#54b192;
+  --banner-btn-2:#26363E;
+
+  /* play */
+
+
+  /* team */
+  --team-title:#0072E9;
+  --team-text:#fff;
+  --team-bg:#26363E;
+  --team-boder:#ccc;
+
+  /* contact */
+  --contact-bg:#26363E;
+  --contact-aside:#0072E9;
+  --contact-title:#F4F4F4;
+  --contact-text:#F4F4F4;
+  --contact-text-input:#F4F4F4;
+  --contact-label:#0072E9;
+  --contact-btn: #f75842;
+
   /* transition */
   --smooth: all 0.3s ease-in;
 }
@@ -33,18 +58,53 @@ body {
   /* dark-theme */
   font-family: "Roboto", sans-serif;
   background-color: var(--bg);
+  transition: var(--smooth);
 }
 
 .light-theme{
-  --white:#3f3d56;
-  --grey:#ccc;
-  --green:#54b192;
-  --navbar-color: #242526;
-  --red:#f75842;
-  --blue:#3f3d56;
-  --bg: #FDC96C;
-  --bg2: #54b192;
+  --filler:0;
+  /* background */
+  --bg: #E9ECE6;
+
+  /* social */
+  --fb:#3b5999;
+  --ig:#e4405f;
+  --tw:#55acee;
+
+  /* navbar */
+  --navbar-bg: #242526;
+  --navbar-text:#fff;
+  --navbar-text-2:#54b192;
+
+  /* banner */
+  --banner-title:#545B5A;
+  --banner-text:#242526;
+  --banner-btn-1:#54b192;
+  --banner-btn-2:#545B5A;
+
+  /* play */
+
+
+  /* team */
+  --team-title:#545B5A;
+  --team-text:#fff;
+  --team-bg:#54b192;
+  --team-boder:#545B5A;
+
+  /* contact */
+  --contact-bg:#C0DFD9;
+  --contact-aside:#54b192;
+  --contact-title:#fff;
+  --contact-text:#fff;
+  --contact-text-input:#242526;
+  --contact-label:#545B5A;
+  --contact-btn: #f75842;
+
+  /* transition */
+  --smooth: all 0.3s ease-in;
+
 }
+
 
 img {
   max-width: 100%;
@@ -55,13 +115,6 @@ a {
   text-decoration: none;
 }
 
-.container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 10px;
-}
-
 ul {
   list-style: none;
 }
@@ -69,7 +122,6 @@ ul {
 button {
   text-align: center;
   color: #fff;
-  background-color: #3f3d56;
   padding: 0.8rem 2.5rem;
   border: none;
   border-radius: 10rem;
@@ -81,10 +133,16 @@ button {
 header {
   position: absolute;
   position: fixed;
-  background-color: var(--navbar-color);
+  background-color: var(--navbar-bg);
   width: 100%;
-  height: 10vh;
   z-index: 1;
+}
+
+.navbar__container{
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .navbar {
@@ -97,7 +155,6 @@ header {
 /* logo */
 .navbar .navbar__logo img {
   width: 57px;
-  height: 57px;
   object-fit: cover;
 }
 
@@ -109,13 +166,14 @@ header {
 }
 
 .navbar .navbar__list a {
-  color: #fff;
+  font-size: 1.2rem;
+  color: var(--navbar-text);
   font-weight: 300;
   transition: var(--smooth);
 }
 
 .navbar .navbar__list a:hover {
-  color: var(--header-color);
+  color: var(--navbar-text-2);
   transition: var(--smooth);
 }
 
@@ -123,11 +181,10 @@ header {
   margin: 30px 55px;
 }
 
-/* nút dark-light mode */
+/* mode */
 .navbar .navbar__mode {
   text-align: center;
 }
-
 .navbar .navbar__mode .switch {
   position: relative;
   cursor: pointer;
@@ -141,20 +198,16 @@ header {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   background: #000;
   border-radius: 10rem;
-  transition: var(--smooth);
+  transition: var(--smooth)
 }
-
 .navbar .navbar__mode .switch .fa-moon {
   color: #f1c40f;
   font-size: 1.5rem;
 }
-
 .navbar .navbar__mode .switch .fa-sun {
   color: #f39c12;
   font-size: 1.5rem;
 }
-
-/* hình tròn giữa nút mode */
 .navbar .navbar__mode .switch::after {
   content: "";
   position: absolute;
@@ -163,21 +216,16 @@ header {
   border-radius: 50%;
   background-color: #fff;
   left: 0;
-  transition: var(--smooth);
+  transition: var(--smooth)
 }
-
 .navbar .navbar__mode .switch-input {
   display: none;
 }
-
-/* nút tròn di chuyển */
 .navbar .navbar__mode .switch-input:checked + .switch {
-  background-color: var(--blue);
+  background-color: var(--banner-title);
 }
-
 .navbar .navbar__mode .switch-input:checked + .switch::after {
   transform: translateX(4rem);
-  background-color: white;
 }
 
 /* ============banner============= */
@@ -188,34 +236,42 @@ header {
   align-items: center;
 }
 
+#banner .banner__container{
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
 #banner .banner__img {
   position: absolute;
   top: 0;
   right: 0;
   z-index: -1;
-  height: 580px;
   width: 50%;
 }
 
 #banner .banner__heading {
-  text-align: initial;
+  text-align: center;
   z-index: 1;
   padding-top: 10%;
-  height: 580px;
   width: 50%;
 }
 
 #banner .banner__heading h1 {
-  color: var(--blue);
+  color: var(--banner-title);
   font-size: 4rem;
   margin-bottom: 1rem;
+  transition: var(--smooth);
 }
 
 #banner .banner__heading p {
+  font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 1.5em;
   line-height: 2rem;
-  color: var(--white);
+  color: var(--banner-text);
+  transition: var(--smooth);
 }
 
 #banner .banner__heading .banner__heading--item {
@@ -225,22 +281,30 @@ header {
 }
 
 #banner .banner__heading .banner__heading--item .banner__btn {
+  text-align: center;
+  color: #fff;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: var(--smooth);
   margin-top: 5rem;
   margin-right: 8rem;
   font-size: 1.5rem;
   transform: translateY(-2rem);
-  background-color: var(--green);
+  background-color: var(--banner-btn-1);
+  
 }
 
 #banner .banner__heading .banner__heading--item .banner__btn:hover {
-  background-color: var(--navbar-color);
-  color: var(--blue);
+  background-color: var(--banner-btn-2);
+  color: #fff;
   transition: var(--smooth);
+  
 }
 
 #banner .banner__heading .banner__heading--item img {
   width: 155px;
-  height: 200px;
   animation: move 2s alternate infinite;
 }
 
@@ -254,91 +318,133 @@ header {
 }
 
 /* ============play============= */
-#play {
+#play{
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+}
+#play .play__container{
+  border-top: var(--team-boder) 3px solid;
+  max-width: 1200px;
   width: 100%;
-  height: 100vh;
-  color: var(--white);
+  margin: 0 auto;
+  padding: 0 10px;
+  
+  
+}
+
+#play .play__container .play__heading{
+  margin: 3rem 0;
+  color: var(--team-text);
   text-align: center;
-  font-size: 5rem;
-  padding: 5rem;
+}
+
+#play .play{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex-direction: column;
+  align-items: center;
+  gap:5rem;
+  margin-left: 15%;
+}
+
+.play__img{
+  /* filter: contrast(1); */
+}
+
+.play__item{
+  width: 50%;
+}
+.vol__bar{
+  visibility: hidden;
+}
+
+.vol__bar.vol__open{
+  visibility: unset;
+  transition: var(--smooth);
 }
 
 /* ============team============= */
 #team {
+  position: relative;
   width: 100%;
-  height: 100%;
   padding: 2rem;
 }
 
-#team .container {
-  border-top: #ccc 1px solid;
+#team .team__container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  border-top: var(--team-boder) 3px solid;
+  border-bottom: var(--team-boder) 3px solid;
+  padding-bottom: 6.5%;
   display: flex;
   align-self: center;
   justify-content: end;
-  height: 60vh;
   gap: 10%;
 }
 
-#team .container h2 {
-  margin-top: 13%;
-  margin-left: 5%;
-  text-align: center;
+#team .team__container h2 {
+  margin-top: 8%;
+  margin-left: 10%;
   width: 15%;
   font-size: 2.5rem;
-  color: var(--blue);
+  color: var(--team-title);
 }
 
-#team .container .team {
+#team .team__container .team {
   margin-top: 3rem;
   width: 70%;
-  height: 50vh;
   display: flex;
   align-self: end;
   gap: 15%;
 }
 
-#team .container .team .team__member {
+#team .team__container .team .team__member {
   width: 40%;
-  height: 50vh;
   position: relative;
-  background: var(--bg2);
+  background: var(--team-bg);
   padding: 1rem;
-  border: transparent 1px solid;
-  border-radius: 3rem;
+  border: transparent 3px solid;
+  border-radius: 2rem;
   overflow: hidden;
-}
-
-#team .container .team .team__member:hover {
-  border-color: var(--blue);
   transition: var(--smooth);
 }
 
-#team .container .team .team__member:hover:hover .team__member--img img {
+#team .team__container .team .team__member:hover {
+  border-color: var(--team-title);
+  transition: var(--smooth);
+}
+
+#team .team__container .team .team__member:first-child{
+  transform: translateY(10%);
+}
+
+#team .team__container .team .team__member:hover:hover .team__member--img img {
   filter: saturate(1);
+  transition: var(--smooth);
 }
 
-#team .container .team .team__member .team__member--img {
-  top: 0;
+#team .team__container .team .team__member .team__member--img {
   width: 100%;
-  height: 70%;
 }
 
-#team .container .team .team__member .team__member--img img {
+#team .team__container .team .team__member .team__member--img img {
   transform: translateX(10%);
   width: 80%;
   border-radius: 50%;
   object-fit: cover;
-  filter: saturate(0);
+  filter: saturate(var(--filler));
 }
 
-#team .container .team .team__member .team__member--info * {
-  height: 30%;
-  margin-top: 1.5rem;
+#team .team__container .team .team__member .team__member--info * {
+  margin-top: 1rem;
   text-align: center;
-  color: var(--white);;
+  color: var(--team-text);;
 }
 
-#team .container .team .team__member .team__member--social {
+#team .team__container .team .team__member .team__member--social {
   position: absolute;
   top: 50%;
   right: 0;
@@ -351,31 +457,30 @@ header {
   right: -100%;
 }
 
-#team .container .team .team__member .team__member--social a {
+#team .team__container .team .team__member .team__member--social a {
   font-size: 2rem;
   padding: 1rem;
 }
 
-#team .container .team .team__member .team__member--social a:nth-child(2) {
+#team .team__container .team .team__member .team__member--social a:nth-child(2) {
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
 
-#team .container .team .team__member .team__member--social a .fa-facebook {
+#team .team__container .team .team__member .team__member--social a .fa-facebook {
   color: var(--fb);
 }
 
-#team .container .team .team__member .team__member--social a .fa-instagram {
+#team .team__container .team .team__member .team__member--social a .fa-instagram {
   color: var(--ig);
 }
 
-#team .container .team .team__member .team__member--social a .fa-twitter {
+#team .team__container .team .team__member .team__member--social a .fa-twitter {
   color: var(--tw);;
 }
 
-#team .container .team .team__member .team__member--social a .social-share-icon {
+#team .team__container .team .team__member .team__member--social a .social-share-icon {
   width: 40px;
-  height: 40px;
   border-radius: inherit;
   display: flex;
   align-items: center;
@@ -383,7 +488,7 @@ header {
   font-size: 2rem;
 }
 
-#team .container .team .team__member:hover .team__member--social {
+#team .team__container .team .team__member:hover .team__member--social {
   right: 0;
   transition: var(--smooth);
 }
@@ -392,21 +497,23 @@ header {
 #contact .contact__container {
   max-width: 1200px;
   width: 100%;
-  background-color: var(--bg2);
+  background-color: var(--contact-bg);
   padding: 5rem;
   display: grid;
   grid-template-columns: 40% 60%;
   gap: 4rem;
   margin: 5rem auto;
   border-radius: 1rem;
+  transition: var(--smooth);
 }
 
 #contact .contact__container .contact__aside {
-  background-color: var(--blue);
+  background-color: var(--contact-aside);
   padding: 3rem;
   border-radius: 1rem;
   position: relative;
   bottom: 1rem;
+  transition: var(--smooth);
 }
 
 #contact .contact__container .contact__aside .aside__img {
@@ -419,24 +526,27 @@ header {
   font-size: 2rem;
   text-align: left;
   margin-bottom: 1rem;
-  color: var(--white);;
+  color: var(--contact-title);;
+  transition: var(--smooth);
 }
 
 #contact .contact__container .contact__aside p {
   font-weight: 300;
   font-size: 1rem;
   margin-bottom: 2rem;
-  color: var(--white);;
+  color: var(--contact-text);
+  transition: var(--smooth);
 }
 
 #contact .contact__container .contact__aside .contact__detail li {
   font-size: 1rem;
   font-weight: 300;
-  color: var(--white);;
+  color: var(--contact-text);;
   display: flex;
   gap: 2rem;
   align-items: center;
   margin-bottom: 1rem;
+  transition: var(--smooth);
 }
 
 #contact .contact__container .contact__aside .contact__social {
@@ -446,7 +556,7 @@ header {
 }
 
 #contact .contact__container .contact__aside .contact__social a {
-  background-color: var(--white);;
+  background-color: #fff;
   padding: 0.5rem;
   font-size: 1.5rem;
   border-radius: 50%;
@@ -469,6 +579,7 @@ header {
   background-color: transparent;
 }
 
+/* ============form================ */
 #contact .contact__container .contact__form {
   display: flex;
   flex-direction: column;
@@ -482,34 +593,42 @@ header {
   display: block;
   width: 100%;
   font-size: 1.5rem;
-  border: 1px solid var(--blue);
+  border: 2px solid var(--contact-label);
   border-radius: 4px;
   background-color: transparent;
-  color: var(--white);;
+  color: var(--contact-text-input);
   resize: none;
+  transition: var(--smooth);
 }
 
+
 #contact .contact__container .contact__form label {
+  padding: 0 5px;
   display: inline-block;
   font-weight: 600;
   cursor: pointer;
   position: absolute;
   left: 1rem;
-  background-color: var(--bg2);
-  font-size: 1rem;
+  background-color: var(--contact-bg);
+  font-size: 1.2rem;
   transform: translateY(-50%);
-  color: var(--blue);
+  color: var(--contact-label);
+  transition: var(--smooth);
 }
 
 #contact .contact__container .contact__form .submit__btn {
+
+  text-align: center;
+  color: #fff;
+  transition: var(--smooth);
   width: max-content;
   cursor: pointer;
   padding: 1rem 2rem;
   margin-top: 1rem;
   border-radius: 4px;
-  background-color: var(--red);
+  background-color: var(--contact-btn);
   border: 1px solid transparent;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   transition: all 400ms ease;
   -webkit-transform-style: preserve-3d;
@@ -519,7 +638,6 @@ header {
 }
 
 #contact .contact__container .contact__form .submit__btn:hover {
-  background-color: var(--red);
   transform: rotateY(-15deg);
 }
 
@@ -556,6 +674,7 @@ footer {
 
 .footer__container ul li a:hover {
   text-decoration: underline;
+  color: var(--navbar-text-2);
 }
 
 .footer__container p {
